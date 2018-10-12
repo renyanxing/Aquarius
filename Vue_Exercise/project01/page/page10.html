@@ -9,16 +9,17 @@
 </head>
 <body>
     <div id="app">
-        <h2><a :href="url" :target="target">菜鸟教程</a></h2>
+        <input type="text" v-model="cent"/>
+        <h1 v-if="cent>100">输入有误</h1>
+        <h1 v-else-if="cent>=80">优秀</h1>
+        <h1 v-else-if="cent>=60">及格</h1>
+        <h1 v-else>不及格</h1>
     </div>
     <script>
-        new Vue({
+        var vm=new Vue({
             el:'#app',
             data:{
-                url:'http://www.baidu.com',
-                //绑定target在新窗口打开，不绑定在当前窗口打开
-                target:'_Blank'
-                
+                cent:90
             }
         })
     </script>

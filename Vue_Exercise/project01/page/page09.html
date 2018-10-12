@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="../js/vue.min.js"></script>
+    <title>Document</title>
+
+</head>
+<body>
+    <div id="app">
+        <input type="button" @click="func" value="点击"/>
+    </div>
+    <div id="app1">
+        <p v-if="seen">你看到我了</p>
+    </div>
+    <script>
+        var vm=new Vue({
+            el:'#app1',
+            data:{
+                seen:true
+            }
+        })
+        new Vue({
+            el:"#app",
+            methods:{
+                func:function(){
+                    vm.seen=!Boolean(vm.seen^false);
+                    alert(false&&true);                   
+                    // if(vm.seen) vm.seen=false;
+                    // else vm.seen=true;
+                    return;
+                }
+            }
+        })
+    </script>
+</body>
+</html>

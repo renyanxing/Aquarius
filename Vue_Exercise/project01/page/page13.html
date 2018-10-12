@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="../js/vue.min.js"></script>
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app">
+        <input @click="changeSite" type="button" value="点击">
+        <p>{{site}}</p>
+    </div>
+    <script>
+        new Vue({
+            el:'#app',
+            data:{
+                name:'Google',
+                url:'www.Google.com'
+            },
+            computed:{
+                site:{
+                    get:function(){
+                        return this.name + ':' + this.url;
+                    },
+                    set:function(value){
+                        var names=value.split('：');
+                        this.name=names[0];
+                        this.url=names[1];
+                    }
+                }
+            },
+            methods:{
+                changeSite:function(){
+                    this.site = '菜鸟教程：http://www.runoob.com';
+                }
+            }
+            
+        })
+    </script>
+
+    <!-- <div id="app">
+        <p>原字符串：{{message}}</p>
+        <p>计算后反转字符串:{{reversedmessage}}</p>
+        <p>方法反转字符串:{{reversed2(reversedmessage)}}</p>
+    </div>
+    <script>
+        new Vue({
+            el: '#app',
+            data: {
+                message: 'renyanxing',
+
+            },
+            computed: {
+                reversedmessage: function () {
+                    return this.message.split('').reverse().join('');
+                }
+            },
+            methods:{
+                reversed2:function(value){
+                    return value.split('').reverse().join('');
+                }
+            }
+        })
+    </script> -->
+    <!-- <div id="app">
+        <p>原字符串：{{message}}</p>
+        <p>计算后反转字符串:{{reversedmessage}}</p>
+    </div>
+    <script>
+        new Vue({
+            el:'#app',
+            data:{
+                message:'renyanxing'
+            },
+            computed:{
+                reversedmessage:function(){
+                    return this.message.split('').reverse().join('');
+                }
+            }
+        })
+    </script> -->
+</body>
+
+</html>
