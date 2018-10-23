@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="../js/vue.min.js"></script>
+    <title>Document</title>
+    <style>
+        .active{
+            width: 100px;
+            height: 100px;
+            background-color:#0000ff;
+        }
+        .active1{
+            width: 100px;
+            height: 100px;
+            background-color:#00ff00;
+        }
+    </style>
+</head>
+<body>
+    <div id="app">
+        <div v-bind:class="classObj"  ></div>
+    </div>
+    <script>
+        new Vue({
+            el:'#app',
+            data:{
+                isActive:true,
+                error:null
+            },
+            computed:{
+                classObj:function(){
+                    return {
+                        active:this.isActive&&!this.error,
+                        active1:this.error&&this.error.type==='fatal',
+                    }
+                }
+            }
+        })
+    
+    </script>
+    <!-- <div id="app">
+            <input type="button" value="点击" @click="changeColor">
+            <div v-bind:class="classObj"  ></div>
+        </div>
+        <script>
+            new Vue({
+                el:'#app',
+                data:{
+                    classObj:{
+                        active:true,
+                        active1:false
+                    }
+                },
+                methods:{
+                    changeColor:function(){
+                        this.classObj.active1=Boolean(!this.classObj.active1^false);
+                    }
+                }
+            })
+        
+        </script> -->
+
+
+
+    <!-- <div id="app">
+        <input type="button" value="点击" @click="changeColor">
+        <div v-bind:class="{active:isActive,active1:isActive1}"  ></div>
+    </div>
+    <script>
+        new Vue({
+            el:'#app',
+            data:{
+                isActive:true,
+                isActive1:false
+            },
+            methods:{
+                changeColor:function(){
+
+                    //this.isActive=Boolean(!this.isActive^false);
+                    //class样式可以覆盖
+                    this.isActive1=Boolean(!this.isActive1^false);
+                }
+            }
+        })
+    
+    </script> -->
+
+
+
+    <!-- <div id="app">
+        <input type="button" value="点击" @click="changeColor">
+        <div v-bind:class="{active:isActive}"  ></div>
+    </div>
+    <script>
+        new Vue({
+            el:'#app',
+            data:{
+                isActive:true
+            },
+            methods:{
+                changeColor:function(){
+
+                    this.isActive=Boolean(!this.isActive^false);
+                }
+            }
+        })
+    
+    </script> -->
+</body>
+</html>
